@@ -1,0 +1,97 @@
+ 
+
+ {
+  "subLogoList": [
+    {
+      "type": "text",
+      "content": "Some text"
+    },
+    {
+      "type": "email",
+      "content": "email@company.com"
+    },
+    {
+      "type": "phone",
+      "content": "+1234567890"
+    }
+  ],
+  "navGroups": [
+    {
+      "title": "INFORMATION",
+      "items": [
+        {
+          "title": "Contact us",
+          "link": "/contact"
+        },
+        {
+          "title": "Career",
+          "link": "/career"
+        },
+        {
+          "title": "My Account",
+          "link": "/my-account"
+        },
+        {
+          "title": "Order & Returns",
+          "link": "/order-returns"
+        },
+        {
+          "title": "FAQs",
+          "link": "/faqs"
+        }
+      ]
+    },
+    {
+      "title": "QUICK SHOP",
+      "items": [
+        {
+          "title": "Women",
+          "link": "/women"
+        },
+        {
+          "title": "Men",
+          "link": "/men"
+        },
+        {
+          "title": "Clothes",
+          "link": "/clothes"
+        },
+        {
+          "title": "Accessories",
+          "link": "/accessories"
+        },
+        {
+          "title": "Blog",
+          "link": "/blog"
+        }
+      ]
+    },
+    {
+      "title": "CUSTOMER SERVICES",
+      "items": [
+        {
+          "title": "Orders FAQs",
+          "link": "/orders-faqs"
+        },
+        {
+          "title": "Shipping",
+          "link": "/shipping"
+        },
+        {
+          "title": "Privacy Policy",
+          "link": "/privacy-policy"
+        },
+        {
+          "title": "Return & Refund",
+          "link": "/return-refund"
+        }
+      ]
+    }
+  ],
+  "newsLetter": {
+    "title": "Newsletter",
+    "description": "Subscribe to our newsletter to get the latest news and updates.",
+    "placeholder": "Enter your email",
+    "button":"Subscribe"
+  }
+}
