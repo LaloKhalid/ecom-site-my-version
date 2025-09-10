@@ -25,6 +25,8 @@ export interface NewsletterConfig {
 }
 
 export interface FooterConfig {
+   brandName: string;              
+   year?: string | number;
    subLogoList: UpTo3<SubLogoItem>;
    navGroups: UpTo3<NavGroup>;
    newsLetter: NewsletterConfig;

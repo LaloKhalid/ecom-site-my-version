@@ -38,10 +38,7 @@ const Footer = () => {
                         {item.content}
                       </a>
                     ) : (
-                      <span
-                        key={idx}
-                        className={idx === 0 ? "" : "mt-3"}
-                      >
+                      <span key={idx} className={idx === 0 ? "" : "mt-3"}>
                         {item.content}
                       </span>
                     );
@@ -55,10 +52,7 @@ const Footer = () => {
               {/* NAV GROUPS */}
               <div className="list-nav flex justify-between basis-2/3 max-md:basis-full gap-4">
                 {footerConfig.navGroups.map((group, gIdx) => (
-                  <div
-                    key={gIdx}
-                    className="item flex flex-col basis-1/3 "
-                  >
+                  <div key={gIdx} className="item flex flex-col basis-1/3 ">
                     <div className="text-button-uppercase pb-3">
                       {group.title}
                     </div>
@@ -101,12 +95,12 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
           {/* FOOTER BOTTOM */}
           <div className="footer-bottom py-3 flex items-center justify-between gap-5 max-lg:justify-center max-lg:flex-col border-t border-line">
             <div className="left flex items-center gap-8">
               <div className="copyright caption1 text-secondary">
-                ©2023 Anvogue. All Rights Reserved.
+                ©{footerConfig.year || new Date().getFullYear()}{" "}
+                {footerConfig.brandName}. All Rights Reserved.
               </div>
             </div>
             <div className="right flex items-center gap-2">
