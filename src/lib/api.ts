@@ -1,4 +1,5 @@
-import { Product, Collection } from '@/types/api';
+import { Product, Collection } from '@/type/api';
+
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL!;
 const API_KEY = process.env.API_KEY!;
