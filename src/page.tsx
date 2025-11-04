@@ -1,13 +1,14 @@
-// src/app/page.tsx
-import React from 'react';
-import { getProducts, getCollections } from '@/lib/api';
-import ProductsGrid from '@/components/ProductsGrid';
-import CollectionsGrid from '@/components/CollectionsGrid';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 import TopNavOne from '@/components/Header/TopNav/TopNavOne';
 import MenuOne from '@/components/Header/Menu/MenuOne';
 import SliderOne from '@/components/Slider/SliderOne';
 import WhatNewOne from '@/components/Home1/WhatNewOne';
+import ProductsGrid from '@/components/ProductsGrid';
+import CollectionsGrid from '@/components/CollectionsGrid';
 import Banner from '@/components/Home1/Banner';
 import Benefit from '@/components/Home1/Benefit';
 import Testimonial from '@/components/Home1/Testimonial';
@@ -16,23 +17,29 @@ import Brand from '@/components/Home1/Brand';
 import Footer from '@/components/Footer/Footer';
 import ModalNewsletter from '@/components/Modal/ModalNewsletter';
 
-import productData from '@/data/Product.json';
+import { getProducts, getCollections } from '@/lib/api';
+import { Product, Collection } from '@/type/api';
 import testimonialData from '@/data/Testimonial.json';
 
-interface HomePageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
+export default function Home() {
+  const searchParams = useSearchParams();
+  const productCount = parseInt(searchParams.get('productCount') || '4', 10);
+  const collectionCount = parseInt(searchParams.get('collectionCount') || '3', 10);
 
-export default async function Home({ searchParams }: HomePageProps) {
-  // Parse query parameters
-  const productCount = Number(searchParams?.productCount || 8);
-  const collectionCount = Number(searchParams?.collectionCount || 3);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [collections, setCollections] = useState<Collection[]>([]);
 
-  // Fetch products and collections
-  const [products, collections] = await Promise.all([
-    getProducts(productCount),
-    getCollections(collectionCount),
-  ]);
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedProducts = await getProducts(productCount);
+      const fetchedCollections = await getCollections(collectionCount);
+
+      setProducts(fetchedProducts);
+      setCollections(fetchedCollections);
+    }
+
+    fetchData();
+  }, [productCount, collectionCount]);
 
   return (
     <>
